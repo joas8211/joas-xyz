@@ -1,4 +1,4 @@
-import { dirname, relative, resolve } from "path";
+import { basename, dirname, relative, resolve } from "path";
 import { DirectoryWalker } from "../src/DirectoryWalker";
 import { Layout } from "../src/Layout";
 import { Renderer } from "../src/Renderer";
@@ -43,15 +43,20 @@ import { constants as FS } from "fs";
     if (!sourceChanged) {
       console.log(`Modified page: ${relative(pagesDirectory, file)}`);
     }
+    let filePath = relative(pagesDirectory, file);
+    let webPath = "/" + dirname(filePath).replace(".", "");
     const content = (await readFile(file)).toString();
-    const result = await renderer.render(content);
+    const result = await renderer.render(content, webPath);
 
-    let path = relative(pagesDirectory, file);
-    path = path.substr(0, path.length - 2) + "html";
-    path = resolve(distDirectory, path);
-    await ensureDirectory(dirname(path), FS.W_OK);
-    await writeFile(path, result);
-    outputFiles.push(path);
+    if (basename(filePath) == "index.md") {
+      filePath = filePath.substr(0, filePath.length - 3) + ".html";
+    } else {
+      filePath = filePath.substr(0, filePath.length - 3) + "/index.html";
+    }
+    filePath = resolve(distDirectory, filePath);
+    await ensureDirectory(dirname(filePath), FS.W_OK);
+    await writeFile(filePath, result);
+    outputFiles.push(filePath);
   }
 
   for (

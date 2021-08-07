@@ -13,7 +13,7 @@ export class Renderer {
     this.md = new MarkdownIt();
   }
 
-  async render(content: string): Promise<string> {
+  async render(content: string, path: string): Promise<string> {
     const blocks = /^(?:---\n(.*?)\n---\n)?(.*)$/s.exec(content);
     if (!blocks) throw new Error("Error parsing page metadata");
     const meta = yaml.parse(blocks[1] || "");
@@ -21,6 +21,7 @@ export class Renderer {
     return "<!doctype html>" + renderer.render(
       <this.Layout
         content={content}
+        path={path}
         {...meta}
       />,
     );

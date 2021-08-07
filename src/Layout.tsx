@@ -2,7 +2,7 @@ import { Raw } from "@bikeshaving/crank";
 import { createElement as h } from "@bikeshaving/crank";
 
 export function Layout(
-  { title, content }: { title?: string; content: string },
+  { title, content, path }: { title?: string; content: string; path: string },
 ) {
   return (
     <html>
