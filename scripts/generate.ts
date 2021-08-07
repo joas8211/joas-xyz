@@ -8,6 +8,8 @@ import { constants as FS } from "fs";
 
 (async () => {
   const projectDirectory = dirname(__dirname);
+  const srcDirectory = `${projectDirectory}/src`;
+  const scriptsDirectory = `${projectDirectory}/scripts`;
   const pagesDirectory = `${projectDirectory}/pages`;
   const distDirectory = `${projectDirectory}/dist`;
   const filesDirectory = `${projectDirectory}/files`;
@@ -21,14 +23,26 @@ import { constants as FS } from "fs";
     if (error.code != "ENOENT") throw error;
   }
 
+  const sourceWalker = new DirectoryWalker(lastGenerated);
+  const sourceChanged = (await sourceWalker.walk(srcDirectory)).length > 0 ||
+    (await sourceWalker.walk(scriptsDirectory)).length > 0;
+  if (sourceChanged) {
+    console.log("Source changed. Doing full generation...");
+  }
+
   const renderer = new Renderer(Layout);
   const outputFiles = [];
   for (
-    const file of await new DirectoryWalker(lastGenerated, ".md").walk(
+    const file of await new DirectoryWalker(
+      sourceChanged ? 0 : lastGenerated,
+      ".md",
+    ).walk(
       pagesDirectory,
     )
   ) {
-    console.log(`Modified page: ${relative(pagesDirectory, file)}`);
+    if (!sourceChanged) {
+      console.log(`Modified page: ${relative(pagesDirectory, file)}`);
+    }
     const content = (await readFile(file)).toString();
     const result = await renderer.render(content);
 
@@ -41,11 +55,14 @@ import { constants as FS } from "fs";
   }
 
   for (
-    const src of await new DirectoryWalker(lastGenerated).walk(
-      filesDirectory,
-    )
+    const src of await new DirectoryWalker(sourceChanged ? 0 : lastGenerated)
+      .walk(
+        filesDirectory,
+      )
   ) {
-    console.log(`Modified file: ${relative(filesDirectory, src)}`);
+    if (!sourceChanged) {
+      console.log(`Modified file: ${relative(filesDirectory, src)}`);
+    }
     const dest = resolve(distDirectory, relative(filesDirectory, src));
     await ensureDirectory(dirname(dest), FS.W_OK);
     await copyFile(src, dest);
