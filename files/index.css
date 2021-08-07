@@ -1,0 +1,171 @@
+body {
+  background-color: #222222;
+  color: white;
+  margin: 0;
+}
+
+header .hero {
+  background-color: #5F008C;
+  height: 500px;
+  max-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+header .pattern .square {
+  position: absolute;
+  top: 0;
+  width: 125px;
+  padding-bottom: 125px;
+  background-color: #9b51e0;
+  transform: translate(calc(var(--x) * 175%), calc(var(--y) * 175%))
+    rotateY(0deg) rotateZ(45deg);
+  animation: square-flip 5s infinite calc(var(--i) * -1s);
+}
+
+header .pattern .square.left {
+  left: 0;
+}
+
+header .pattern .square.right {
+  right: 0;
+}
+
+header .content-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+header img {
+  aspect-ratio: 4/5;
+  width: auto;
+  height: 80%;
+  align-self: end;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+header .title-column {
+  display: flex;
+  align-items: center;
+}
+
+header .title-container {
+  border-left: 1rem solid white;
+  padding-left: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin-left: 1rem;
+}
+
+header nav {
+  background-color: black;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+header nav li.current {
+  font-weight: bold;
+}
+
+header nav li + li:before {
+  content: '';
+  border-left: solid 1px #aaaaaa;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+header nav li a {
+  color: #cccccc;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header nav li a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+main img {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  header img {
+    width: auto;
+    height: 100%;
+  }
+
+  header .title-column {
+    position: absolute;
+    top: 0;
+    right: 5rem;
+    height: 100%;
+  }
+}
+
+@media (max-width: 376px) {
+  header .hero {
+    height: auto;
+  }
+
+  header .pattern {
+    display: none;
+  }
+
+  header .content-container {
+    position: initial;
+  }
+
+  header img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  header .title-column {
+    left: 0;
+    right: 0;
+    justify-content: center;
+  }
+}
+
+@keyframes square-flip {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header .pattern .square {
+    animation-play-state: paused;
+  }
+}
