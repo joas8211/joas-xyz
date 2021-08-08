@@ -26,7 +26,9 @@ export function Layout(
 function Header({ path: currentPath }: { path: string }) {
   const items = {
     "About Me": "/",
-    "My Projects": "/projects",
+    "CV": "/cv",
+    "Portfolio": "/portfolio",
+    "Contact": "/contact",
   };
 
   const coordinatesLeft = [];
@@ -58,7 +60,7 @@ function Header({ path: currentPath }: { path: string }) {
           )}
         </div>
         <div class="content-container">
-          <img src="/hills.jpg" />
+          <img src="/images/me.png" />
           <div class="title-column">
             <div class="title-container">
               <h1>Jesse Sivonen</h1>
