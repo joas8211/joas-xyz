@@ -43,17 +43,20 @@ import { constants as FS } from "fs";
     if (!sourceChanged) {
       console.log(`Modified page: ${relative(pagesDirectory, file)}`);
     }
-    let filePath = relative(pagesDirectory, file);
-    let webPath = "/" + dirname(filePath).replace(".", "");
-    const content = (await readFile(file)).toString();
-    const result = await renderer.render(content, webPath);
 
+    let filePath = relative(pagesDirectory, file);
     if (basename(filePath) == "index.md") {
       filePath = filePath.substr(0, filePath.length - 3) + ".html";
     } else {
       filePath = filePath.substr(0, filePath.length - 3) + "/index.html";
     }
+    let webPath = "/" + dirname(filePath).replace(".", "");
+
+    const content = (await readFile(file)).toString();
+    const result = await renderer.render(content, webPath);
+
     filePath = resolve(distDirectory, filePath);
+    console.log(filePath);
     await ensureDirectory(dirname(filePath), FS.W_OK);
     await writeFile(filePath, result);
     outputFiles.push(filePath);
@@ -81,10 +84,11 @@ import { constants as FS } from "fs";
   ) {
     const file = relative(distDirectory, path);
     if (
-      await exists(
-        resolve(pagesDirectory, file.substr(0, file.length - 4) + "md"),
-      ) ||
-      await exists(resolve(filesDirectory, file))
+      await exists(resolve(filesDirectory, file)) ||
+      (basename(file) == "index.html" &&
+        (await exists(
+          resolve(pagesDirectory, file.substr(0, file.length - 4) + "md"),
+        ) || await exists(resolve(pagesDirectory, dirname(file) + ".md"))))
     ) {
       continue;
     }
