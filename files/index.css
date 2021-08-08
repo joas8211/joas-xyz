@@ -39,21 +39,23 @@ header .content-container {
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 }
 
 header img {
   aspect-ratio: 4/5;
   width: auto;
-  height: 80%;
-  align-self: end;
+  height: 90%;
   object-fit: cover;
   object-position: center;
+  filter: grayscale();
 }
 
 
 header .title-column {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 header .title-container {
@@ -62,12 +64,13 @@ header .title-container {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   margin-left: 1rem;
+  margin-bottom: 100px;
 }
 
 header nav {
   background-color: black;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 header nav ul {
@@ -77,6 +80,7 @@ header nav ul {
   padding-right: 1rem;
   margin: 0;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 header nav li.current {
@@ -101,7 +105,7 @@ header nav li a:hover {
 }
 
 main {
-  max-width: 1000px;
+  max-width: 80ch;
   margin: auto;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -109,6 +113,10 @@ main {
 
 main img {
   max-width: 100%;
+}
+
+main a {
+  color: white;
 }
 
 @media (max-width: 900px) {
@@ -122,6 +130,12 @@ main img {
     top: 0;
     right: 5rem;
     height: 100%;
+  }
+
+  header .title-container :is(h1, p) {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.1em;
+    padding: 0.2em;
   }
 }
 
@@ -146,7 +160,6 @@ main img {
   header .title-column {
     left: 0;
     right: 0;
-    justify-content: center;
   }
 }
 
