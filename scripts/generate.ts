@@ -56,7 +56,6 @@ import { constants as FS } from "fs";
     const result = await renderer.render(content, webPath);
 
     filePath = resolve(distDirectory, filePath);
-    console.log(filePath);
     await ensureDirectory(dirname(filePath), FS.W_OK);
     await writeFile(filePath, result);
     outputFiles.push(filePath);
