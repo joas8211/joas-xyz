@@ -6,25 +6,30 @@ title: CV
 
 ## Work experience
 
-My work experience starts when I started studying IT in vocational school. The
-first training lasted 6 months in the end of 2016 at atFlow. AtFlow is a local
-company in Joensuu that specializes in developing websites with e-commerce and
-information management features. After the half a year training I did paid work
-for the summer 2017 (2 months) at atFlow.
+### 2016 - 2017: atFlow
 
-When the summer was over I switched company to gain more experience. I started
-training at Process Genius, a company that develops 3D user interfaces to manage
-factories and other environments and machinery. After 4 months of training there
-I got work agreement that was valid until further notice. I continued to do the
-school work training while getting paid for it for another 2 months.
+- 6 months as a web developer trainee
+- 2 months as a junior web developer
+- Backend and technical front-end
+- Website and e-commerce projects
 
-Autumn 2018 after my focused study period Process Genius didn't have work to
-offer so I went back to atFlow for a fixed term work period. I resigned from
-Process Genius and started working at atFlow with the current stable work
-position. I ended my studies and continued to work there.
+### 2017 - 2018: Process Genius
 
-My current work experience in the field of web / software development is 5
-years.
+- 4 months as a developer trainee
+- 2 months as a junior developer
+- Backend and technical frontend
+- Digital twin projects
+- Platform development
+
+### 2018 - Today: atFlow
+
+- Backend and technical frontend
+- DataFlow Travel Product Master
+  - Travel e-commerce platform development
+  - Consulting in customer cases
+- Service Desk Technical Lead
+  - Internal trainings and helping with issues
+  - On-boarding trainees
 
 ## Education
 
@@ -41,3 +46,10 @@ Finland, "Taitaja" in Finnish) with category of web development.
 - 2017 I won gold (1.) in Helsinki
 - 2018 I won bronze (3.) in Tampere
 - 2019 I won bronze (3.) in Joensuu
+
+## Languages
+
+- Finnish as primary language
+- English as strong secondary language
+- TypeScript and JavaScript as preferred programming languages
+- PHP as mastered programming language

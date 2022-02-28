@@ -46,25 +46,25 @@ function Header({ path: currentPath }: { path: string }) {
     <header>
       <div class="hero">
         <div class="pattern">
-          {coordinatesLeft.map(({ x, y }, i) =>
+          {coordinatesLeft.map(({ x, y }, i) => (
             <div
               class="square left"
               style={`--i: ${i}; --x: ${x}; --y: ${y}`}
             />
-          )}
-          {coordinatesRight.map(({ x, y }, i) =>
+          ))}
+          {coordinatesRight.map(({ x, y }, i) => (
             <div
               class="square right"
               style={`--i: ${i}; --x: ${x}; --y: ${y}`}
             />
-          )}
+          ))}
         </div>
         <div class="content-container">
           <img src="/images/me.png" />
           <div class="title-column">
             <div class="title-container">
               <h1>Jesse Sivonen</h1>
-              <p>Self-learned web developer</p>
+              <p>Web developer</p>
             </div>
           </div>
         </div>
