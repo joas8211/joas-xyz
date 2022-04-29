@@ -3,7 +3,12 @@ import { DirectoryWalker } from "../src/DirectoryWalker";
 import { Layout } from "../src/Layout";
 import { Renderer } from "../src/Renderer";
 import { copyFile, readFile, rm, writeFile } from "fs/promises";
-import { ensureDirectory, exists, removeEmptyDirectory } from "../src/fsUtils";
+import {
+  ensureDirectory,
+  exists,
+  isErrnoException,
+  removeEmptyDirectory,
+} from "../src/fsUtils";
 import { constants as FS } from "fs";
 
 (async () => {
@@ -20,7 +25,9 @@ import { constants as FS } from "fs";
     lastGenerated =
       JSON.parse((await readFile(cacheFile)).toString()).lastGenerated;
   } catch (error) {
-    if (error.code != "ENOENT") throw error;
+    if (isErrnoException(error) && error.code && error.code != "ENOENT") {
+      throw error;
+    }
   }
 
   const sourceWalker = new DirectoryWalker(lastGenerated);
