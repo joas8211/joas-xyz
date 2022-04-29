@@ -21,7 +21,7 @@ title: CV
 - Digital twin projects
 - Platform development
 
-### 2018 - Today: atFlow
+### 2018 - 2022: atFlow
 
 - Backend and technical frontend
 - DataFlow Travel Product Master
@@ -30,6 +30,10 @@ title: CV
 - Service Desk Technical Lead
   - Internal trainings and helping with issues
   - On-boarding trainees
+
+### 2022 - Today: Process Genius
+
+- Software developer
 
 ## Education
 
