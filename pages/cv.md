@@ -33,7 +33,7 @@ title: CV
 
 ### 2022 - Today: Process Genius
 
-- Software developer
+- Senior Software Developer
 
 ## Education
 
