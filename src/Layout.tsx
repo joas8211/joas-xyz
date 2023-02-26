@@ -60,7 +60,7 @@ function Header({ path: currentPath }: { path: string }) {
           ))}
         </div>
         <div class="content-container">
-          <img src="/images/me.png" />
+          <img src="/images/me.png" alt="" width="400" height="500" />
           <div class="title-column">
             <div class="title-container">
               <h1>Jesse Sivonen</h1>
