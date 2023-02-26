@@ -64,7 +64,10 @@ function Header({ path: currentPath }: { path: string }) {
           <div class="title-column">
             <div class="title-container">
               <h1>Jesse Sivonen</h1>
-              <p>Web developer</p>
+              <p>
+                Senior Software Developer,<br />
+                Process Genius Oy
+              </p>
             </div>
           </div>
         </div>
