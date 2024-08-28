@@ -4,11 +4,10 @@ title: About Me
 
 # About Me
 
-Hey! I'm Jesse Sivonen. A self-learned web developer with a profession in the
-same field. I live in Joensuu, Finland, in the land of lakes and city of the
-river. My hobbies are making music by myself and with my band Takauma, playing
-computer and board games with my friends and programming large projects that I
-cannot ever finish. I also enjoy baking.
+Hey! I'm Jesse Sivonen. A software developer and entrepreneur. I live in
+Joensuu, Finland, in the land of lakes and city of the river. My hobbies are
+making music with my band Takauma, playing computer and board games with my
+friends, and some frisbee golf. Oh, and I also enjoy baking.
 
 ## Professional skills
 
@@ -16,22 +15,15 @@ I'm interested in providing non-programmers the ability to create content in the
 web and interact with each other through the means of technology. Below is some
 skills and strong points I have in the professional context:
 
-- Problem solving
-- Ability to improve ways of doing
-- Continuous learning
-- Modern web-development
-- JavaScript / TypeScript tooling
-- LAMP-stack
-- UI/UX design
-- Understanding of different programming languages and patterns. My prominent
-  programming languages are TypeScript and PHP.
-- Android app development basics
-- Basics of low / medium level programming and embedded devices
+- Problem solving skills
+- Want to improve ways of working
+- Continuously learning
+- Web-development
+- Basics of UI/UX design
+- Some low / medium level programming for embedded devices
+- Good grasp of IoT and analythical data delivery
+- Knowledge and interest in authentication and authorization systems
 
 ## What else
 
-If you are interested in reading my experiences, check out [my CV](/cv).
-
-Want to see my accomplishments and projects, see [portfolio](/portfolio).
-
-Something else in your mind? [Contact me](/contact).
+Something in your mind? [Contact me](/contact).

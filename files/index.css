@@ -5,7 +5,7 @@ body {
 }
 
 header .hero {
-  background-color: #5F008C;
+  background-color: #5f008c;
   height: 500px;
   max-height: 100vh;
   position: relative;
@@ -51,7 +51,6 @@ header img {
   filter: grayscale();
 }
 
-
 header .title-column {
   display: flex;
   flex-direction: column;
@@ -88,7 +87,7 @@ header nav li.current {
 }
 
 header nav li + li:before {
-  content: '';
+  content: "";
   border-left: solid 1px #aaaaaa;
   margin-left: 1rem;
   margin-right: 1rem;

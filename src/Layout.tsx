@@ -1,9 +1,15 @@
 import { Raw } from "@bikeshaving/crank";
 import { createElement as h } from "@bikeshaving/crank";
 
-export function Layout(
-  { title, content, path }: { title?: string; content: string; path: string },
-) {
+export function Layout({
+  title,
+  content,
+  path,
+}: {
+  title?: string;
+  content: string;
+  path: string;
+}) {
   return (
     <html lang="en">
       <head>
@@ -26,9 +32,7 @@ export function Layout(
 function Header({ path: currentPath }: { path: string }) {
   const items = {
     "About Me": "/",
-    "CV": "/cv",
-    "Portfolio": "/portfolio",
-    "Contact": "/contact",
+    Contact: "/contact",
   };
 
   const coordinatesLeft = [];
@@ -65,8 +69,9 @@ function Header({ path: currentPath }: { path: string }) {
             <div class="title-container">
               <h1>Jesse Sivonen</h1>
               <p>
-                Senior Software Developer,<br />
-                Process Genius Oy
+                Software Entrepreneur,
+                <br />
+                Pala Ohjelmistot
               </p>
             </div>
           </div>
@@ -76,9 +81,7 @@ function Header({ path: currentPath }: { path: string }) {
         <ul>
           {Object.entries(items).map(([text, path]) => (
             <li class={path == currentPath ? "current" : null}>
-              <a href={path}>
-                {text}
-              </a>
+              <a href={path}>{text}</a>
             </li>
           ))}
         </ul>

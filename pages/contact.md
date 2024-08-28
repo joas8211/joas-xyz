@@ -4,9 +4,9 @@ title: Contact
 
 # Contact Details
 
-Contact me for any reason. You can contact me via email below. For bug reports
-and issues with my projects check out my GitHub profile that is also listed
-below.
+You can contact me via email below. You can also find my work from GitLab and
+GitHub.
 
-- Email address: [j.sivonen@hotmail.com](mailto:j.sivonen@hotmail.com)
+- Email address: [jesse.sivonen@paloista.fi](mailto:jesse.sivonen@paloista.fi)
+- GitLab profile: [Joas8211](https://gitlab.com/joas8211)
 - GitHub profile: [Joas8211](https://github.com/joas8211/)

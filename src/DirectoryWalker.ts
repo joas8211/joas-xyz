@@ -12,7 +12,7 @@ export class DirectoryWalker {
   constructor(
     modifiedAfter: number = 0,
     fileExtension?: string,
-    maxDepth = Infinity,
+    maxDepth = Infinity
   ) {
     this.modifiedAfter = modifiedAfter;
     this.fileExtension = fileExtension;

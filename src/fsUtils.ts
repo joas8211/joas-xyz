@@ -1,7 +1,7 @@
 import { access, mkdir, readdir, rmdir } from "fs/promises";
 
 export function isErrnoException(
-  error: unknown,
+  error: unknown
 ): error is NodeJS.ErrnoException {
   return error instanceof Error;
 }

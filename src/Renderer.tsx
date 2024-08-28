@@ -18,12 +18,9 @@ export class Renderer {
     if (!blocks) throw new Error("Error parsing page metadata");
     const meta = yaml.parse(blocks[1] || "");
     content = this.md.render(blocks[2]);
-    return "<!doctype html>" + renderer.render(
-      <this.Layout
-        content={content}
-        path={path}
-        {...meta}
-      />,
+    return (
+      "<!doctype html>" +
+      renderer.render(<this.Layout content={content} path={path} {...meta} />)
     );
   }
 }

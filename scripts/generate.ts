@@ -22,8 +22,9 @@ import { constants as FS } from "fs";
 
   let lastGenerated = 0;
   try {
-    lastGenerated =
-      JSON.parse((await readFile(cacheFile)).toString()).lastGenerated;
+    lastGenerated = JSON.parse(
+      (await readFile(cacheFile)).toString()
+    ).lastGenerated;
   } catch (error) {
     if (isErrnoException(error) && error.code && error.code != "ENOENT") {
       throw error;
@@ -31,7 +32,8 @@ import { constants as FS } from "fs";
   }
 
   const sourceWalker = new DirectoryWalker(lastGenerated);
-  const sourceChanged = (await sourceWalker.walk(srcDirectory)).length > 0 ||
+  const sourceChanged =
+    (await sourceWalker.walk(srcDirectory)).length > 0 ||
     (await sourceWalker.walk(scriptsDirectory)).length > 0;
   if (sourceChanged) {
     console.log("Source changed. Doing full generation...");
@@ -39,14 +41,10 @@ import { constants as FS } from "fs";
 
   const renderer = new Renderer(Layout);
   const outputFiles = [];
-  for (
-    const file of await new DirectoryWalker(
-      sourceChanged ? 0 : lastGenerated,
-      ".md",
-    ).walk(
-      pagesDirectory,
-    )
-  ) {
+  for (const file of await new DirectoryWalker(
+    sourceChanged ? 0 : lastGenerated,
+    ".md"
+  ).walk(pagesDirectory)) {
     if (!sourceChanged) {
       console.log(`Modified page: ${relative(pagesDirectory, file)}`);
     }
@@ -68,12 +66,9 @@ import { constants as FS } from "fs";
     outputFiles.push(filePath);
   }
 
-  for (
-    const src of await new DirectoryWalker(sourceChanged ? 0 : lastGenerated)
-      .walk(
-        filesDirectory,
-      )
-  ) {
+  for (const src of await new DirectoryWalker(
+    sourceChanged ? 0 : lastGenerated
+  ).walk(filesDirectory)) {
     if (!sourceChanged) {
       console.log(`Modified file: ${relative(filesDirectory, src)}`);
     }
@@ -83,18 +78,15 @@ import { constants as FS } from "fs";
     outputFiles.push(dest);
   }
 
-  for (
-    const path of await new DirectoryWalker().walk(
-      distDirectory,
-    )
-  ) {
+  for (const path of await new DirectoryWalker().walk(distDirectory)) {
     const file = relative(distDirectory, path);
     if (
-      await exists(resolve(filesDirectory, file)) ||
+      (await exists(resolve(filesDirectory, file))) ||
       (basename(file) == "index.html" &&
-        (await exists(
-          resolve(pagesDirectory, file.substr(0, file.length - 4) + "md"),
-        ) || await exists(resolve(pagesDirectory, dirname(file) + ".md"))))
+        ((await exists(
+          resolve(pagesDirectory, file.substr(0, file.length - 4) + "md")
+        )) ||
+          (await exists(resolve(pagesDirectory, dirname(file) + ".md")))))
     ) {
       continue;
     }
