@@ -71,7 +71,7 @@ function Header({ path: currentPath }: { path: string }) {
               <p>
                 Software Entrepreneur,
                 <br />
-                Pala Ohjelmistot
+                <a href="https://paloista.fi">Pala Software</a>
               </p>
             </div>
           </div>

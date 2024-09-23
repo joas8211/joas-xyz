@@ -66,6 +66,10 @@ header .title-container {
   margin-bottom: 100px;
 }
 
+header .title-container a {
+  color: white;
+}
+
 header nav {
   background-color: black;
   padding-top: 0.75rem;
