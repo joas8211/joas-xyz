@@ -18,6 +18,11 @@ export function Layout({
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="400d48dc-3daf-4f39-9643-aa2d2ad6b0e2"
+        ></script>
       </head>
       <body>
         <Header path={path} />
